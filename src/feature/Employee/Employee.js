@@ -8,6 +8,7 @@ const Employee = (props) => {
                     return <li key={user.id} className="list-group-item">{user.employee}</li>
                 })
             }
+             {employees.length == 0 && <li className="list-group-item">No user found</li>}
         </ul>
     )
 }
