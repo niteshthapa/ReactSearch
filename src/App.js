@@ -27,7 +27,6 @@ function App() {
   return (
     <div className='container'>
       {loading && "Loading..."}
-      {currentSelection.length > 0}
       <Search searchCurrentUser={searchCurrentUser} />
       <Employee employees={employees.filter((item, index) => (
         currentSelection.length > 0 ? item.employee.toLowerCase().substr(0, currentSelection.length) === currentSelection.toLowerCase() : item.employee
