@@ -9,7 +9,7 @@ function App() {
     async function fetchData() {
       try {
         setLoading(true)
-        const response = await fetch("https://retoolapi.dev/KShrmC/data")
+        const response = await fetch("https://jsonplaceholder.typicode.com/posts")
         const data = await response.json();
         setEmployees(data);
         setLoading(false)
@@ -25,12 +25,19 @@ function App() {
     setCurrentSelection(data)
   }
   return (
-    <div className='container'>
-      {loading && "Loading..."}
+   <div className="container">
+      {loading && 'Loading...'}
       <Search searchCurrentUser={searchCurrentUser} />
-      <Employee employees={employees.filter((item, index) => (
-        currentSelection.length > 0 ? item.employee.toLowerCase().substr(0, currentSelection.length) === currentSelection.toLowerCase() : item.employee
-      ))} />
+      {currentSelection.length !== 0 && (
+        <Employee
+          employees={employees.filter((item, index) =>
+            currentSelection.length > 0
+              ? item.title.toLowerCase().substr(0, currentSelection.length) ===
+                currentSelection.toLowerCase()
+              : null
+          )}
+        />
+      )}
     </div>
   );
 }
