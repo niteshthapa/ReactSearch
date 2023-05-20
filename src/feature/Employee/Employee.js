@@ -5,7 +5,7 @@ const Employee = (props) => {
         <ul className="list-group">
             {
                 employees.map(user => {
-                    return <li key={user.id} className="list-group-item">{user.employee}</li>
+                    return <li key={user.id} className="list-group-item">{user.title}</li>
                 })
             }
              {employees.length == 0 && <li className="list-group-item">No user found</li>}
